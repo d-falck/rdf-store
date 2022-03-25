@@ -1,12 +1,9 @@
 #pragma once
-
 #include <functional>
 #include <optional>
-
 #include <types.h>
 #include <RDFIndex.h>
 #include <Query.h>
-
 
 class System {
     public:

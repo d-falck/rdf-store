@@ -2,9 +2,7 @@
 #include <exception>
 #include <iostream>
 #include <sstream>
-
 #include <System.h>
-
 
 void System::select_query_string(std::string query_string) {
     Query query = Query::parse(query_string,
@@ -12,7 +10,7 @@ void System::select_query_string(std::string query_string) {
     _evaluate_query(query, true);
 }
 
-void System::select_query_string(std::string query_string) {
+void System::count_query_string(std::string query_string) {
     Query query = Query::parse(query_string,
         [=] (std::string name) {return _encode_resource(name);});
     _evaluate_query(query, false);
@@ -37,6 +35,14 @@ void System::_evaluate_query(Query query, bool print) {
         (end-start).count();
     std::cout << _result_counter << " results returned in "
               << elapsed_ms << " ms." << std::endl;
+}
+
+Term _apply_map(VariableMap map, Term term) {
+    if (term.index() == 1) return term;
+    else {
+        Variable var = std::get<Variable>(term);
+        return Term{map[var]};
+    }
 }
 
 void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
@@ -66,14 +72,6 @@ void System::_print_mapped_values(VariableMap map,
         std::cout << _decode_resource(map[var]) << "\t";
     }
     std::cout << std::endl;
-}
-
-Term _apply_map(VariableMap map, Term term) {
-    if (term.index() == 1) return term;
-    else {
-        Variable var = std::get<Variable>(term);
-        return Term{map[var]};
-    }
 }
 
 Resource System::_encode_resource(std::string name) {

@@ -2,10 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-
 #include <System.h>
 #include <types.h>
-
 
 int main() {
     System system;
@@ -19,7 +17,7 @@ int main() {
         std::getline(std::cin, command);
 
         // Execute according to command
-        switch (which_command[keyword]) {
+        switch (which_command.at(keyword)) {
             case Command::LOAD: {
                 std::ifstream file(command);
                 if (!file.is_open()) throw std::invalid_argument("Invalid file.");
@@ -48,4 +46,3 @@ int main() {
     }
     return 0;
 }
-

@@ -9,7 +9,7 @@
 				"-std=c++17",
 				"-fdiagnostics-color=always",
 				"-g",
-				"${file}",
+				"*.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-I${workspaceFolder}/include/"

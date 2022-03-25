@@ -1,5 +1,4 @@
 #pragma once
-
 #include <tuple>
 
 // Function for combining two hashes

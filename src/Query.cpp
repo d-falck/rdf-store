@@ -2,9 +2,7 @@
 #include <exception>
 #include <iterator>
 #include <sstream>
-
 #include <Query.h>
-
 
 Query::Query(std::vector<Variable> vars,
              std::unordered_set<TriplePattern> pats) {
@@ -12,6 +10,19 @@ Query::Query(std::vector<Variable> vars,
     _patterns = pats;
 }
 
+Variable _parse_variable(std::string str) {
+    if (str[0] != '?') throw std::invalid_argument(
+        "Variable doesn't begin with ?");
+    if (str.length() != 2) throw std::invalid_argument(
+        "Variable names must be single characters");
+    return (Variable) str[1];
+}
+
+Term _parse_term(std::string str,
+                 std::function<Resource(std::string)> resource_encoder) {
+    if (str[0] == '?') return Term{_parse_variable(str)};
+    else return Term{resource_encoder(str)};
+}
 
 Query Query::parse(std::string query_string,
                    std::function<Resource(std::string)> resource_encoder) {
@@ -55,48 +66,8 @@ Query Query::parse(std::string query_string,
     return Query(vars, pats);
 }
 
-Variable _parse_variable(std::string str) {
-    if (str[0] != '?') throw std::invalid_argument(
-        "Variable doesn't begin with ?");
-    if (str.length() != 2) throw std::invalid_argument(
-        "Variable names must be single characters");
-    return (Variable) str[1];
-}
-
-Term _parse_term(std::string str,
-                 std::function<Resource(std::string)> resource_encoder) {
-    if (str[0] == '?') return Term{_parse_variable(str)};
-    else return Term{resource_encoder(str)};
-}
-
-
 std::vector<Variable> Query::get_variables() {return _variables;}
 std::unordered_set<TriplePattern> Query::get_patterns() {return _patterns;}
-
-std::vector<TriplePattern> Query::optimize_join_order() {
-    std::unordered_set<TriplePattern> unprocessed(_patterns);
-    std::vector<TriplePattern> processed;
-    std::unordered_set<Variable> bound;
-
-    while (!unprocessed.empty()) {
-        int best_score = 100;
-        TriplePattern best_pattern = INVALID_PATTERN;
-        for (TriplePattern pattern : unprocessed) {
-            int score = _get_score(pattern, bound);
-            std::unordered_set<Variable> vars = _get_variables(pattern);
-            bool condition = (score < best_score)
-                && (vars.empty() || !_intersect<Variable>(vars, bound).empty());
-            if ((best_pattern == INVALID_PATTERN) || condition) {
-                best_pattern = pattern;
-                best_score = score;
-            }
-        }
-        processed.push_back(best_pattern);
-        for (Variable var : _get_variables(best_pattern)) bound.insert(var);
-        unprocessed.erase(best_pattern);
-    }
-    return processed;
-}
 
 int _get_score(TriplePattern pattern, std::unordered_set<Variable> bound) {
     auto [a,b,c] = pattern;
@@ -129,4 +100,29 @@ std::unordered_set<T> _intersect(std::unordered_set<T> set1,
         for (T t2 : set2) if (t1 == t2) output.insert(t1);
     }
     return output;
+}
+
+std::vector<TriplePattern> Query::optimize_join_order() {
+    std::unordered_set<TriplePattern> unprocessed(_patterns);
+    std::vector<TriplePattern> processed;
+    std::unordered_set<Variable> bound;
+
+    while (!unprocessed.empty()) {
+        int best_score = 100;
+        TriplePattern best_pattern = INVALID_PATTERN;
+        for (TriplePattern pattern : unprocessed) {
+            int score = _get_score(pattern, bound);
+            std::unordered_set<Variable> vars = _get_variables(pattern);
+            bool condition = (score < best_score)
+                && (vars.empty() || !_intersect<Variable>(vars, bound).empty());
+            if ((best_pattern == INVALID_PATTERN) || condition) {
+                best_pattern = pattern;
+                best_score = score;
+            }
+        }
+        processed.push_back(best_pattern);
+        for (Variable var : _get_variables(best_pattern)) bound.insert(var);
+        unprocessed.erase(best_pattern);
+    }
+    return processed;
 }

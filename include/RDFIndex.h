@@ -1,13 +1,10 @@
 #include <functional>
 #pragma once
-
 #include <optional>
 #include <tuple>
 #include <unordered_map>
 #include <vector>
-
 #include <types.h>
-
 
 class RDFIndex {
     public:

@@ -1,13 +1,11 @@
 #include <stdexcept>
-
+#include <string>
 #include <RDFIndex.h>
-
 
 RDFIndex::~RDFIndex() {
     int n = _table.size();
     for (int i=0; i<n; i++) delete _table[i];
 }
-
 
 void RDFIndex::add(Resource s, Resource p, Resource o) {
     try {_index_SPO.at(std::make_tuple(s, p, o));}
@@ -43,6 +41,16 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
     }
 }
 
+PatternType _get_pattern_type(TriplePattern pattern) {
+    auto [a,b,c] = pattern;
+    if (a.index() == 0) {
+        if (b.index() == 0) return (c.index() == 0) ? XYZ : XYO;
+        else return (c.index() == 0) ? XPZ : XPO;
+    } else {
+        if (b.index() == 0) return (c.index() == 0) ? SYZ : SYO;
+        else return (c.index() == 0) ? SPZ : SPO;
+    }
+}
 
 std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, Term c) {
     std::function<bool(_TableRow*)> condition = [] (_TableRow* row) {return true;};
@@ -51,7 +59,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
     std::function<_TableRow*(_TableRow*)> next;
 
     switch (_get_pattern_type(std::make_tuple(a, b, c))) {
-        case XYZ:
+        case XYZ: {
             Variable x = std::get<Variable>(a);
             Variable y = std::get<Variable>(b);
             Variable z = std::get<Variable>(c);
@@ -71,7 +79,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
             implied_map = [=] (_TableRow* row) {
                 return VariableMap{{x,row->s},{y,row->p},{z,row->o}};};
             break;
-        case SYZ:
+        }
+        case SYZ: {
             Resource s = std::get<Resource>(a);
             Variable y = std::get<Variable>(b);
             Variable z = std::get<Variable>(c);
@@ -83,7 +92,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
             implied_map = [=] (_TableRow* row) {
                 return VariableMap{{y,row->p},{z,row->o}};};
             break;
-        case XYO:
+        }
+        case XYO: {
             Variable x = std::get<Variable>(a);
             Variable y = std::get<Variable>(b);
             Resource o = std::get<Resource>(c);
@@ -95,7 +105,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
             implied_map = [=] (_TableRow* row) {
                 return VariableMap{{x,row->s},{y,row->p}};};
             break;
-        case XPZ:
+        }
+        case XPZ: {
             Variable x = std::get<Variable>(a);
             Resource p = std::get<Resource>(b);
             Variable z = std::get<Variable>(c);
@@ -107,7 +118,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
             implied_map = [=] (_TableRow* row) {
                 return VariableMap{{x,row->s},{z,row->o}};};
             break;
-        case SPZ:
+        }
+        case SPZ: {
             Resource s = std::get<Resource>(a);
             Resource p = std::get<Resource>(b);
             Variable z = std::get<Variable>(c);
@@ -117,7 +129,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
                 return (row != nullptr && row->p == p) ? row : nullptr;};
             implied_map = [=] (_TableRow* row) {return VariableMap{{z,row->o}};};
             break;
-        case XPO:
+        }
+        case XPO: {
             Variable x = std::get<Variable>(a);
             Resource p = std::get<Resource>(b);
             Resource o = std::get<Resource>(c);
@@ -127,7 +140,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
                 return (row != nullptr && row->p == p) ? row : nullptr;};
             implied_map = [=] (_TableRow* row) {return VariableMap{{x,row->s}};};
             break;
-        case SYO:
+        }
+        case SYO: {
             Resource s = std::get<Resource>(a);
             Variable y = std::get<Variable>(b);
             Resource o = std::get<Resource>(c);
@@ -146,7 +160,8 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
                     return row;};
             }
             break;
-        case SPO:
+        }
+        case SPO: {
             Resource s = std::get<Resource>(a);
             Resource p = std::get<Resource>(b);
             Resource o = std::get<Resource>(c);
@@ -154,6 +169,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
             next = [] (_TableRow* row) {return nullptr;};
             implied_map = [=] (_TableRow* row) {return VariableMap{};};
             break;
+        }
     }
 
     _TableRow* current = (head == nullptr || condition(head)) ? head : next(head);
@@ -166,16 +182,3 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b, T
         }
     };
 }
-
-PatternType _get_pattern_type(TriplePattern pattern) {
-    auto [a,b,c] = pattern;
-    if (a.index() == 0) {
-        if (b.index() == 0) return (c.index() == 0) ? XYZ : XYO;
-        else return (c.index() == 0) ? XPZ : XPO;
-    } else {
-        if (b.index() == 0) return (c.index() == 0) ? SYZ : SYO;
-        else return (c.index() == 0) ? SPZ : SPO;
-    }
-}
-
-

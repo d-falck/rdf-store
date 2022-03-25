@@ -1,13 +1,9 @@
 #pragma once
-
 #include <functional>
 #include <string>
 #include <vector>
 #include <unordered_set>
-
 #include <types.h>
-
-
 class Query {
     public:
         Query(std::vector<Variable>, std::unordered_set<TriplePattern>);
