@@ -1,6 +1,10 @@
+#pragma once
+
 #include <tuple>
 #include <unordered_map>
 #include <variant>
+
+#include <hash.h>
 
 enum class Variable : char;
 enum PatternType {XYZ, SYZ, XPZ, XYO, SPZ, SYO, XPO, SPO};

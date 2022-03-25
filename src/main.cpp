@@ -20,7 +20,7 @@ int main() {
 
         // Execute according to command
         switch (which_command[keyword]) {
-            case Command::LOAD:
+            case Command::LOAD: {
                 std::ifstream file(command);
                 if (!file.is_open()) throw std::invalid_argument("Invalid file.");
                 std::stringstream stream;
@@ -28,17 +28,22 @@ int main() {
                 system.load_triples(stream.str());
                 file.close();
                 break;
-            case Command::SELECT:
+            }
+            case Command::SELECT: {
                 system.select_query_string(command);
                 break;
-            case Command::COUNT:
+            }
+            case Command::COUNT: {
                 system.count_query_string(command);
                 break;
-            case Command::QUIT:
+            } 
+            case Command::QUIT: {
                 ready = false;
                 break;
-            default:
+            }
+            default: {
                 std::cout << "Invalid command." << std::endl;
+            }
         }
     }
     return 0;

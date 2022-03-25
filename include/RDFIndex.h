@@ -1,4 +1,6 @@
 #include <functional>
+#pragma once
+
 #include <optional>
 #include <tuple>
 #include <unordered_map>
