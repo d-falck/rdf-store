@@ -66,14 +66,7 @@ Variable _parse_variable(std::string str) {
 Term _parse_term(std::string str,
                  std::function<Resource(std::string)> resource_encoder) {
     if (str[0] == '?') return Term{_parse_variable(str)};
-    else {
-        int n = str.length();
-        bool valid = (str[0] == '<' && str[n-1] == '>') ||
-                     (str[0] == '"' && str[n-1] == '"');
-        if (!valid) throw std::invalid_argument(
-            "Resources must be enclosed in quotes or angle brackets");
-        return Term{resource_encoder(str)};
-    }
+    else return Term{resource_encoder(str)};
 }
 
 
