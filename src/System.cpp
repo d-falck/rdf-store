@@ -1,8 +1,10 @@
 #include <chrono>
 #include <exception>
 #include <iostream>
+#include <sstream>
 
 #include <System.h>
+
 
 void System::select_query_string(std::string query_string) {
     Query query = Query::parse(query_string,
@@ -25,7 +27,7 @@ void System::_evaluate_query(Query query, bool print) {
     if (print) {
         std::cout << "----------" << std::endl;
         for (Variable var : variables)
-            std::cout << "?" << (char) var << " " << std::endl;
+            std::cout << "?" << (char) var << "\t";
     }
     _result_counter = 0;
     _nested_index_loop_join(map, 0, print, patterns, variables);
@@ -61,7 +63,7 @@ void System::_print_mapped_values(VariableMap map,
     for (Variable var : variables) {
         if (map.count(var) == 0)
             throw std::invalid_argument("Map doesn't contain all variables");
-        std::cout << _decode_resource(map[var]) << " ";
+        std::cout << _decode_resource(map[var]) << "\t";
     }
     std::cout << std::endl;
 }
@@ -91,4 +93,31 @@ std::string System::_decode_resource(Resource id) {
     if (id >= _stored_resources.size())
         throw std::invalid_argument("Resource ID does not exist");
     return _stored_resources[id];
+}
+
+void System::load_triples(std::string str) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    // Split by whitespace
+    std::stringstream stream(str);
+    std::vector<std::string> words;
+    for (std::string word; stream>>word;) words.push_back(word);
+
+    // Check it's the right length
+    if (words.size() % 4 != 0) throw std::invalid_argument("Invalid N-Triples syntax");
+
+    // Parse each resource
+    for (int i=1; i < words.size(); i += 4) {
+        if (words[i+3] != ".") throw std::invalid_argument("Triples must be separated by periods");
+        Resource s = _encode_resource(words[i]);
+        Resource p = _encode_resource(words[i+1]);
+        Resource o = _encode_resource(words[i+2]);
+        _index.add(s, p, o);
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    int elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>
+        (end-start).count();
+    std::cout << words.size()/4 << " triples loaded in "
+              << elapsed_ms <<" ms." << std::endl;
 }

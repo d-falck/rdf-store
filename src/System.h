@@ -10,6 +10,7 @@ class System {
     public:
         void select_query_string(std::string);
         void count_query_string(std::string);
+        void load_triples(std::string);
 
     private:
         RDFIndex _index;
