@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <exception>
+#include <iostream>
 #include <iterator>
 #include <sstream>
 #include <Query.h>
@@ -45,7 +46,7 @@ Query Query::parse(std::string query_string,
         "No semicolon allowed after query");
     if (words[end_loc-1] != "}") throw std::invalid_argument(
         "Query must end in closing brace");
-    if ((end_loc-where_loc-2) % 4 != 0) throw std::invalid_argument(
+    if ((end_loc-where_loc-3) % 4 != 0) throw std::invalid_argument(
         "Invalid sequence of patterns");
 
     // Get variables
@@ -54,7 +55,7 @@ Query Query::parse(std::string query_string,
 
     // Get triple patterns    
     std::unordered_set<TriplePattern> pats;
-    for (int i=where_loc+2; i<end_loc; i+=4) {
+    for (int i=where_loc+2; i<end_loc-1; i+=4) {
         if (words[i+3] != ".") throw std::invalid_argument(
             "Pattern doesn't end in .");
         Term a = _parse_term(words[i], resource_encoder);

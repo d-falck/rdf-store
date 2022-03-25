@@ -65,5 +65,8 @@
         "fstream": "cpp",
         "iomanip": "cpp",
         "stack": "cpp"
+    },
+    "cmake.debugConfig": {
+        "externalConsole": false
     }
 }

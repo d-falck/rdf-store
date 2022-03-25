@@ -26,6 +26,7 @@ void System::_evaluate_query(Query query, bool print) {
         std::cout << "----------" << std::endl;
         for (Variable var : variables)
             std::cout << "?" << (char) var << "\t";
+        std::cout << std::endl;
     }
     _result_counter = 0;
     _nested_index_loop_join(map, 0, print, patterns, variables);
