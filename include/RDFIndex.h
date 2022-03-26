@@ -22,5 +22,6 @@ class RDFIndex {
         std::unordered_map<Resource, _TableRow*> _index_S, _index_O, _index_P;
         std::unordered_map<ResourcePair, _TableRow*> _index_SP, _index_OP;
         std::unordered_map<ResourceTriple, _TableRow*> _index_SPO;
+        std::unordered_map<_TableRow*, size_t> _len_S, _len_O;
 
 };

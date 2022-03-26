@@ -25,7 +25,14 @@ Term _parse_term(std::string str,
 
 Query Query::parse(std::string query_string,
                    std::function<Resource(std::string)> resource_encoder) {
-    // TODO: first ensure whitespace is correctly present in query string
+    // Ensure braces are surrounded by whitespace (for stream later)
+    size_t pos;
+    if ((pos=query_string.find('{')) == query_string.npos)
+        throw std::invalid_argument("No opening brace in query");
+    query_string.insert(pos+1, " ");
+    if ((pos=query_string.find('}')) == query_string.npos)
+        throw std::invalid_argument("No closing brace in query");
+    query_string.insert(pos, " ");
 
     // Parse into vector of words
     std::stringstream stream(query_string);
@@ -46,7 +53,8 @@ Query Query::parse(std::string query_string,
         "Query must end in closing brace");
     if ((end_loc-where_loc-3) % 4 != 0) throw std::invalid_argument(
         "Invalid sequence of patterns");
-    if (end_loc-where_loc-3 == 0) throw std::invalid_argument("No patterns given!");
+    if (end_loc-where_loc-3 == 0)
+        throw std::invalid_argument("No patterns given!");
 
     // Get variables
     std::vector<Variable> vars;
@@ -71,9 +79,12 @@ std::unordered_set<TriplePattern> Query::get_patterns() {return _patterns;}
 
 int _get_score(TriplePattern pattern, std::unordered_set<Variable> bound) {
     auto [a,b,c] = pattern;
-    bool a_is_bound = (a.index() == 1 || bound.count(std::get<Variable>(a)) == 1);
-    bool b_is_bound = (b.index() == 1 || bound.count(std::get<Variable>(b)) == 1);
-    bool c_is_bound = (c.index() == 1 || bound.count(std::get<Variable>(c)) == 1);
+    bool a_is_bound = (a.index() == 1 ||
+                       bound.count(std::get<Variable>(a)) == 1);
+    bool b_is_bound = (b.index() == 1 ||
+                       bound.count(std::get<Variable>(b)) == 1);
+    bool c_is_bound = (c.index() == 1 ||
+                       bound.count(std::get<Variable>(c)) == 1);
     if (a_is_bound) {
         if (b_is_bound) return (c_is_bound) ? 1 : 4;
         else return (c_is_bound) ? 2 : 6;

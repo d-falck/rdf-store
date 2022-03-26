@@ -10,8 +10,6 @@ int main() {
     System system;
     bool ready = true;
 
-    // int debug_loop = 0;
-
     while (ready) {
         // Wait for command
         std::string keyword, details;
@@ -28,14 +26,6 @@ int main() {
                 details.append(more_details);
             }
         }
-
-        // std::stringstream debug;
-        // if (debug_loop == 0) debug << "LOAD test.txt";
-        // else if (debug_loop == 1) debug << "SELECT ?X ?Y ?Z WHERE { ?X  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateStudent>  . ?Y  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#University>       . ?Z  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department>       . ?X  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>                 ?Z                                                                . ?Z  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>        ?Y                                                                . ?X  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>  ?Y .                                                                }";
-        // else debug << "QUIT";
-        // debug_loop++;
-        // debug >> keyword;
-        // std::getline(debug, details);
 
         // Which command is it?
         Command command;
