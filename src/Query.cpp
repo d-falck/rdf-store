@@ -14,9 +14,7 @@ Query::Query(std::vector<Variable> vars,
 Variable _parse_variable(std::string str) {
     if (str[0] != '?') throw std::invalid_argument(
         "Variable doesn't begin with ?");
-    if (str.length() != 2) throw std::invalid_argument(
-        "Variable names must be single characters");
-    return (Variable) str[1];
+    return (Variable) str.substr(0, str.npos);
 }
 
 Term _parse_term(std::string str,

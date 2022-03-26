@@ -1,0 +1,5 @@
+*.json
+build/
+data/
+.vscode/
+/DS_Store

@@ -20,8 +20,8 @@ int main() {
         std::getline(std::cin, details);
 
         // Allow more lines of input if we've seen `{` but not `}`
-        if (details.find('{') != std::string::npos) {
-            while (details.find('}') == std::string::npos) {
+        if (details.find('{') != details.npos) {
+            while (details.find('}') == details.npos) {
                 std::string more_details;
                 std::getline(std::cin, more_details);
                 details.append(" ");

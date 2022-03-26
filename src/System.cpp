@@ -26,7 +26,7 @@ void System::_evaluate_query(Query query, bool print) {
     if (print) {
         std::cout << "----------" << std::endl;
         for (Variable var : variables)
-            std::cout << "?" << (char) var << "\t";
+            std::cout << "?" << var << "\t";
         std::cout << std::endl;
     }
     _result_counter = 0;
