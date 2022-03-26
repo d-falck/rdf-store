@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -9,22 +10,32 @@ int main() {
     System system;
     bool ready = true;
 
-    int debug_loop = 0;
+    // int debug_loop = 0;
 
     while (ready) {
         // Wait for command
         std::string keyword, details;
         std::cout << "> ";
-        // std::cin >> keyword;
-        // std::getline(std::cin, details);
+        std::cin >> keyword;
+        std::getline(std::cin, details);
 
-        std::stringstream debug;
-        if (debug_loop == 0) debug << "LOAD test.txt";
-        else if (debug_loop == 1) debug << "SELECT ?X WHERE { ?X <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> . }";
-        else debug << "QUIT";
-        debug >> keyword;
-        std::getline(debug, details);
-        debug_loop++;
+        // Allow more lines of input if we've seen `{` but not `}`
+        if (details.find('{') != std::string::npos) {
+            while (details.find('}') == std::string::npos) {
+                std::string more_details;
+                std::getline(std::cin, more_details);
+                details.append(" ");
+                details.append(more_details);
+            }
+        }
+
+        // std::stringstream debug;
+        // if (debug_loop == 0) debug << "LOAD test.txt";
+        // else if (debug_loop == 1) debug << "SELECT ?X ?Y ?Z WHERE { ?X  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateStudent>  . ?Y  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#University>       . ?Z  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>                         <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department>       . ?X  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>                 ?Z                                                                . ?Z  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>        ?Y                                                                . ?X  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>  ?Y .                                                                }";
+        // else debug << "QUIT";
+        // debug_loop++;
+        // debug >> keyword;
+        // std::getline(debug, details);
 
         // Which command is it?
         Command command;

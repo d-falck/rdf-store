@@ -50,7 +50,7 @@ Term _apply_map(VariableMap map, Term term) {
 
 void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
         std::vector<TriplePattern> patterns, std::vector<Variable> variables) {
-    if (i == variables.size()) {
+    if (i == patterns.size()) {
         _result_counter++;
         if (print) _print_mapped_values(map, variables);
     } else {
@@ -58,9 +58,11 @@ void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
         Term a = std::get<0>(pattern);
         Term b = std::get<1>(pattern);
         Term c = std::get<2>(pattern);
+        Term sigma_a = _apply_map(map, a);
+        Term sigma_b = _apply_map(map, b);
+        Term sigma_c = _apply_map(map, c);
         std::function<std::optional<VariableMap>()> generate = _index.evaluate(
-            _apply_map(map, a), _apply_map(map, b), _apply_map(map, c)
-        );
+            sigma_a, sigma_b, sigma_c);
         std::optional<VariableMap> rho;
         while ((rho = generate()).has_value()) {
             for (auto [var, res] : *rho) map[var] = res;

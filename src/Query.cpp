@@ -48,6 +48,7 @@ Query Query::parse(std::string query_string,
         "Query must end in closing brace");
     if ((end_loc-where_loc-3) % 4 != 0) throw std::invalid_argument(
         "Invalid sequence of patterns");
+    if (end_loc-where_loc-3 == 0) throw std::invalid_argument("No patterns given!");
 
     // Get variables
     std::vector<Variable> vars;

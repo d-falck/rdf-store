@@ -1226,14 +1226,10 @@ CMakeFiles/my-RDF-store.dir/src/System.cpp.o: ../src/System.cpp \
   /usr/local/opt/llvm/include/c++/v1/unordered_set
 
 CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
-  /usr/local/opt/llvm/include/c++/v1/iostream \
+  /usr/local/opt/llvm/include/c++/v1/algorithm \
   /usr/local/opt/llvm/include/c++/v1/__config \
   /usr/local/opt/llvm/include/c++/v1/__config_site \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/pthread.h \
-  /usr/local/opt/llvm/include/c++/v1/ios \
-  /usr/local/opt/llvm/include/c++/v1/__locale \
-  /usr/local/opt/llvm/include/c++/v1/__availability \
-  /usr/local/opt/llvm/include/c++/v1/string \
   /usr/local/opt/llvm/include/c++/v1/__debug \
   /usr/local/opt/llvm/include/c++/v1/iosfwd \
   /usr/local/opt/llvm/include/c++/v1/wchar.h \
@@ -1292,22 +1288,36 @@ CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/ctype.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/_ctype.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/runetype.h \
-  /usr/local/opt/llvm/include/c++/v1/__functional_base \
-  /usr/local/opt/llvm/include/c++/v1/__functional/binary_function.h \
-  /usr/local/opt/llvm/include/c++/v1/__functional/invoke.h \
-  /usr/local/opt/llvm/include/c++/v1/__functional/weak_result_type.h \
-  /usr/local/opt/llvm/include/c++/v1/__functional/unary_function.h \
+  /usr/local/opt/llvm/include/c++/v1/__bits \
   /usr/local/opt/llvm/include/c++/v1/__undef_macros \
-  /usr/local/opt/llvm/include/c++/v1/type_traits \
   /usr/local/opt/llvm/include/c++/v1/cstddef \
   /usr/local/opt/llvm/include/c++/v1/version \
+  /usr/local/opt/llvm/include/c++/v1/cstring \
+  /usr/local/opt/llvm/include/c++/v1/string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/sys/_types/_rsize_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/sys/_types/_errno_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/strings.h \
+  /usr/local/opt/llvm/include/c++/v1/functional \
+  /usr/local/opt/llvm/include/c++/v1/__algorithm/search.h \
+  /usr/local/opt/llvm/include/c++/v1/__algorithm/comp.h \
+  /usr/local/opt/llvm/include/c++/v1/__iterator/iterator_traits.h \
+  /usr/local/opt/llvm/include/c++/v1/__iterator/incrementable_traits.h \
+  /usr/local/opt/llvm/include/c++/v1/concepts \
+  /usr/local/opt/llvm/include/c++/v1/__functional/invoke.h \
+  /usr/local/opt/llvm/include/c++/v1/__functional/weak_result_type.h \
+  /usr/local/opt/llvm/include/c++/v1/__functional/binary_function.h \
+  /usr/local/opt/llvm/include/c++/v1/__functional/unary_function.h \
+  /usr/local/opt/llvm/include/c++/v1/type_traits \
   /usr/local/opt/llvm/include/c++/v1/__utility/forward.h \
+  /usr/local/opt/llvm/include/c++/v1/__functional_base \
   /usr/local/opt/llvm/include/c++/v1/__functional/operations.h \
   /usr/local/opt/llvm/include/c++/v1/__functional/reference_wrapper.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/addressof.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/allocator_arg_t.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/uses_allocator.h \
   /usr/local/opt/llvm/include/c++/v1/exception \
+  /usr/local/opt/llvm/include/c++/v1/__availability \
   /usr/local/opt/llvm/include/c++/v1/cstdlib \
   /usr/local/opt/llvm/include/c++/v1/stdlib.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/stdlib.h \
@@ -1368,23 +1378,7 @@ CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/opt/llvm/include/c++/v1/__utility/to_underlying.h \
   /usr/local/opt/llvm/include/c++/v1/compare \
   /usr/local/opt/llvm/include/c++/v1/initializer_list \
-  /usr/local/opt/llvm/include/c++/v1/__iterator/wrap_iter.h \
-  /usr/local/opt/llvm/include/c++/v1/__iterator/iterator_traits.h \
-  /usr/local/opt/llvm/include/c++/v1/__iterator/incrementable_traits.h \
-  /usr/local/opt/llvm/include/c++/v1/concepts \
   /usr/local/opt/llvm/include/c++/v1/__iterator/readable_traits.h \
-  /usr/local/opt/llvm/include/c++/v1/__memory/pointer_traits.h \
-  /usr/local/opt/llvm/include/c++/v1/algorithm \
-  /usr/local/opt/llvm/include/c++/v1/__bits \
-  /usr/local/opt/llvm/include/c++/v1/cstring \
-  /usr/local/opt/llvm/include/c++/v1/string.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/string.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/sys/_types/_rsize_t.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/sys/_types/_errno_t.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/strings.h \
-  /usr/local/opt/llvm/include/c++/v1/functional \
-  /usr/local/opt/llvm/include/c++/v1/__algorithm/search.h \
-  /usr/local/opt/llvm/include/c++/v1/__algorithm/comp.h \
   /usr/local/opt/llvm/include/c++/v1/__functional/binary_negate.h \
   /usr/local/opt/llvm/include/c++/v1/__functional/bind_front.h \
   /usr/local/opt/llvm/include/c++/v1/__functional/perfect_forward.h \
@@ -1396,6 +1390,7 @@ CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/opt/llvm/include/c++/v1/__functional/function.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/allocator_traits.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/construct_at.h \
+  /usr/local/opt/llvm/include/c++/v1/__memory/pointer_traits.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/compressed_pair.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/shared_ptr.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/allocation_guard.h \
@@ -1471,6 +1466,7 @@ CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/opt/llvm/include/c++/v1/__iterator/reverse_access.h \
   /usr/local/opt/llvm/include/c++/v1/__iterator/reverse_iterator.h \
   /usr/local/opt/llvm/include/c++/v1/__iterator/size.h \
+  /usr/local/opt/llvm/include/c++/v1/__iterator/wrap_iter.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/temporary_buffer.h \
   /usr/local/opt/llvm/include/c++/v1/__memory/uninitialized_algorithms.h \
   /usr/local/opt/llvm/include/c++/v1/__functional/identity.h \
@@ -1573,6 +1569,10 @@ CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/opt/llvm/include/c++/v1/__algorithm/transform.h \
   /usr/local/opt/llvm/include/c++/v1/__algorithm/unique_copy.h \
   /usr/local/opt/llvm/include/c++/v1/__algorithm/unique.h \
+  /usr/local/opt/llvm/include/c++/v1/iostream \
+  /usr/local/opt/llvm/include/c++/v1/ios \
+  /usr/local/opt/llvm/include/c++/v1/__locale \
+  /usr/local/opt/llvm/include/c++/v1/string \
   /usr/local/opt/llvm/include/c++/v1/cstdio \
   /usr/local/opt/llvm/include/c++/v1/cwchar \
   /usr/local/opt/llvm/include/c++/v1/cwctype \
