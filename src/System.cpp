@@ -2,6 +2,7 @@
 #include <exception>
 #include <iostream>
 #include <sstream>
+#include <tuple>
 #include <System.h>
 
 void System::select_query_string(std::string query_string) {
@@ -42,7 +43,8 @@ Term _apply_map(VariableMap map, Term term) {
     if (term.index() == 1) return term;
     else {
         Variable var = std::get<Variable>(term);
-        return Term{map[var]};
+        if (map.count(var) == 0) return term;
+        else return Term{map.at(var)};
     }
 }
 
@@ -52,15 +54,18 @@ void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
         _result_counter++;
         if (print) _print_mapped_values(map, variables);
     } else {
-        auto [a, b, c] = patterns[i];
+        TriplePattern pattern = patterns[i];
+        Term a = std::get<0>(pattern);
+        Term b = std::get<1>(pattern);
+        Term c = std::get<2>(pattern);
         std::function<std::optional<VariableMap>()> generate = _index.evaluate(
             _apply_map(map, a), _apply_map(map, b), _apply_map(map, c)
         );
         std::optional<VariableMap> rho;
         while ((rho = generate()).has_value()) {
-            for (auto [var, res] : rho.value()) map[var] = res;
+            for (auto [var, res] : *rho) map[var] = res;
             _nested_index_loop_join(map, i+1, print, patterns, variables);
-            for (auto [var, res] : rho.value()) map.erase(var);
+            for (auto [var, res] : *rho) map.erase(var);
         }
     }
 }
@@ -103,11 +108,13 @@ void System::load_triples(std::string str) {
     for (std::string word; stream>>word;) words.push_back(word);
 
     // Check it's the right length
-    if (words.size() % 4 != 0) throw std::invalid_argument("Invalid N-Triples syntax");
+    if (words.size() % 4 != 0)
+        throw std::invalid_argument("Invalid N-Triples syntax");
 
     // Parse each resource
-    for (int i=1; i < words.size(); i += 4) {
-        if (words[i+3] != ".") throw std::invalid_argument("Triples must be separated by periods");
+    for (int i=0; i < words.size(); i += 4) {
+        if (words[i+3] != ".")
+            throw std::invalid_argument("Triples must be separated by periods");
         Resource s = _encode_resource(words[i]);
         Resource p = _encode_resource(words[i+1]);
         Resource o = _encode_resource(words[i+2]);

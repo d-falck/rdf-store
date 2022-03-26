@@ -12,7 +12,7 @@
             "compilerPath": "/usr/local/opt/llvm/bin/clang",
             "cStandard": "c17",
             "intelliSenseMode": "macos-clang-x64",
-            
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

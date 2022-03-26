@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named DSI
+# Target rules for targets named my-RDF-store
 
 # Build rule for target.
-DSI: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DSI
-.PHONY : DSI
+my-RDF-store: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my-RDF-store
+.PHONY : my-RDF-store
 
 # fast build rule for target.
-DSI/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/build
-.PHONY : DSI/fast
+my-RDF-store/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/build
+.PHONY : my-RDF-store/fast
 
 src/Query.o: src/Query.cpp.o
 .PHONY : src/Query.o
 
 # target to build an object file
 src/Query.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/Query.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.o
 .PHONY : src/Query.cpp.o
 
 src/Query.i: src/Query.cpp.i
@@ -142,7 +142,7 @@ src/Query.i: src/Query.cpp.i
 
 # target to preprocess a source file
 src/Query.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/Query.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.i
 .PHONY : src/Query.cpp.i
 
 src/Query.s: src/Query.cpp.s
@@ -150,7 +150,7 @@ src/Query.s: src/Query.cpp.s
 
 # target to generate assembly for a file
 src/Query.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/Query.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.s
 .PHONY : src/Query.cpp.s
 
 src/RDFIndex.o: src/RDFIndex.cpp.o
@@ -158,7 +158,7 @@ src/RDFIndex.o: src/RDFIndex.cpp.o
 
 # target to build an object file
 src/RDFIndex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/RDFIndex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o
 .PHONY : src/RDFIndex.cpp.o
 
 src/RDFIndex.i: src/RDFIndex.cpp.i
@@ -166,7 +166,7 @@ src/RDFIndex.i: src/RDFIndex.cpp.i
 
 # target to preprocess a source file
 src/RDFIndex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/RDFIndex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.i
 .PHONY : src/RDFIndex.cpp.i
 
 src/RDFIndex.s: src/RDFIndex.cpp.s
@@ -174,7 +174,7 @@ src/RDFIndex.s: src/RDFIndex.cpp.s
 
 # target to generate assembly for a file
 src/RDFIndex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/RDFIndex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.s
 .PHONY : src/RDFIndex.cpp.s
 
 src/System.o: src/System.cpp.o
@@ -182,7 +182,7 @@ src/System.o: src/System.cpp.o
 
 # target to build an object file
 src/System.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/System.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.o
 .PHONY : src/System.cpp.o
 
 src/System.i: src/System.cpp.i
@@ -190,7 +190,7 @@ src/System.i: src/System.cpp.i
 
 # target to preprocess a source file
 src/System.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/System.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.i
 .PHONY : src/System.cpp.i
 
 src/System.s: src/System.cpp.s
@@ -198,7 +198,7 @@ src/System.s: src/System.cpp.s
 
 # target to generate assembly for a file
 src/System.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/System.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.s
 .PHONY : src/System.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -206,7 +206,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -214,7 +214,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -222,7 +222,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSI.dir/build.make CMakeFiles/DSI.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -233,7 +233,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... DSI"
+	@echo "... my-RDF-store"
 	@echo "... src/Query.o"
 	@echo "... src/Query.i"
 	@echo "... src/Query.s"

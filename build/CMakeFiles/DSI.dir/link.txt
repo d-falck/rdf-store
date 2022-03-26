@@ -1,1 +1,0 @@
-/usr/local/opt/llvm/bin/clang++ -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/DSI.dir/src/Query.cpp.o CMakeFiles/DSI.dir/src/RDFIndex.cpp.o CMakeFiles/DSI.dir/src/System.cpp.o CMakeFiles/DSI.dir/src/main.cpp.o -o DSI 

@@ -1,22 +1,22 @@
 [
 {
   "directory": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build",
-  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/DSI.dir/src/Query.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp\"",
+  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/my-RDF-store.dir/src/Query.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp\"",
   "file": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp"
 },
 {
   "directory": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build",
-  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/DSI.dir/src/RDFIndex.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp\"",
+  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp\"",
   "file": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp"
 },
 {
   "directory": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build",
-  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/DSI.dir/src/System.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp\"",
+  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/my-RDF-store.dir/src/System.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp\"",
   "file": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp"
 },
 {
   "directory": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build",
-  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/DSI.dir/src/main.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp\"",
+  "command": "/usr/local/opt/llvm/bin/clang++  -I\"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/include\" -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/my-RDF-store.dir/src/main.cpp.o -c \"/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp\"",
   "file": "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp"
 }
 ]

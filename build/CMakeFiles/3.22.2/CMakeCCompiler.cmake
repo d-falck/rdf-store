@@ -1,7 +1,7 @@
 set(CMAKE_C_COMPILER "/usr/local/opt/llvm/bin/clang-13")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "Clang")
-set(CMAKE_C_COMPILER_VERSION "13.0.0")
+set(CMAKE_C_COMPILER_VERSION "13.0.1")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "17")
@@ -22,9 +22,9 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 set(CMAKE_AR "/usr/local/opt/llvm/bin/llvm-ar")
-set(CMAKE_C_COMPILER_AR "/usr/local/Cellar/llvm/13.0.0_2/bin/llvm-ar")
+set(CMAKE_C_COMPILER_AR "/usr/local/Cellar/llvm/13.0.1_1/bin/llvm-ar")
 set(CMAKE_RANLIB "/usr/local/opt/llvm/bin/llvm-ranlib")
-set(CMAKE_C_COMPILER_RANLIB "/usr/local/Cellar/llvm/13.0.0_2/bin/llvm-ranlib")
+set(CMAKE_C_COMPILER_RANLIB "/usr/local/Cellar/llvm/13.0.1_1/bin/llvm-ranlib")
 set(CMAKE_LINKER "/usr/local/opt/llvm/bin/ld.lld")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCC )
@@ -66,7 +66,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/Cellar/llvm/13.0.0_2/lib/clang/13.0.0/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/Cellar/llvm/13.0.1_1/lib/clang/13.0.1/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks")

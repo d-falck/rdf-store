@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include <string>
+#include <tuple>
 #include <RDFIndex.h>
 
 RDFIndex::~RDFIndex() {
@@ -23,6 +24,7 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
         } catch (std::out_of_range _) { // Insert new_row at head of SP-list
             new_row->next_SP = _index_S[s]; // Potentially null
             _index_S[s] = new_row;
+            _index_SP[std::make_tuple(s,p)] = new_row;
         }
 
         // Update OP-list and _index_OP, _index_O
@@ -33,6 +35,7 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
         } catch (std::out_of_range _) { // Insert new_row at head of OP-list
             new_row->next_OP = _index_O[o]; // Potentially null
             _index_S[o] = new_row;
+            _index_OP[std::make_tuple(o,p)] = new_row;
         }
 
         // Insert new row at head of P-list and update _index_P
