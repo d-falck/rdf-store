@@ -4,11 +4,6 @@
 #include <RDFIndex.h>
 #include <utils.h>
 
-RDFIndex::~RDFIndex() {
-    int n = _table.size();
-    for (int i=0; i<n; i++) delete _table[i];
-}
-
 void RDFIndex::add(Resource s, Resource p, Resource o) {
     // Only proceed if not already present
     try {_index_SPO.at(std::make_tuple(s, p, o));}
@@ -194,4 +189,9 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(
             return std::make_optional<VariableMap>(map);
         }
     };
+}
+
+RDFIndex::~RDFIndex() {
+    int n = _table.size();
+    for (int i=0; i<n; i++) delete _table[i];
 }

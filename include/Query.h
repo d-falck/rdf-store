@@ -10,8 +10,8 @@ class Query {
         std::vector<Variable> variables;
         std::unordered_set<TriplePattern> patterns;
 
-        Query(std::vector<Variable> v,
-            std::unordered_set<TriplePattern> p) : variables(v), patterns(p) {};
+        Query(std::vector<Variable> v, std::unordered_set<TriplePattern> p) :
+            variables(v), patterns(p) {};
         static Query parse(std::string, std::function<Resource(std::string)>);
         std::vector<TriplePattern> plan();
 };
