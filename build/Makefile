@@ -129,101 +129,173 @@ my-RDF-store/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/build
 .PHONY : my-RDF-store/fast
 
-src/Query.o: src/Query.cpp.o
-.PHONY : src/Query.o
+src/a_index.o: src/a_index.cpp.o
+.PHONY : src/a_index.o
 
 # target to build an object file
-src/Query.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.o
-.PHONY : src/Query.cpp.o
+src/a_index.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o
+.PHONY : src/a_index.cpp.o
 
-src/Query.i: src/Query.cpp.i
-.PHONY : src/Query.i
+src/a_index.i: src/a_index.cpp.i
+.PHONY : src/a_index.i
 
 # target to preprocess a source file
-src/Query.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.i
-.PHONY : src/Query.cpp.i
+src/a_index.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/a_index.cpp.i
+.PHONY : src/a_index.cpp.i
 
-src/Query.s: src/Query.cpp.s
-.PHONY : src/Query.s
+src/a_index.s: src/a_index.cpp.s
+.PHONY : src/a_index.s
 
 # target to generate assembly for a file
-src/Query.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/Query.cpp.s
-.PHONY : src/Query.cpp.s
+src/a_index.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/a_index.cpp.s
+.PHONY : src/a_index.cpp.s
 
-src/RDFIndex.o: src/RDFIndex.cpp.o
-.PHONY : src/RDFIndex.o
+src/b_query_evaluate.o: src/b_query_evaluate.cpp.o
+.PHONY : src/b_query_evaluate.o
 
 # target to build an object file
-src/RDFIndex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o
-.PHONY : src/RDFIndex.cpp.o
+src/b_query_evaluate.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o
+.PHONY : src/b_query_evaluate.cpp.o
 
-src/RDFIndex.i: src/RDFIndex.cpp.i
-.PHONY : src/RDFIndex.i
+src/b_query_evaluate.i: src/b_query_evaluate.cpp.i
+.PHONY : src/b_query_evaluate.i
 
 # target to preprocess a source file
-src/RDFIndex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.i
-.PHONY : src/RDFIndex.cpp.i
+src/b_query_evaluate.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.i
+.PHONY : src/b_query_evaluate.cpp.i
 
-src/RDFIndex.s: src/RDFIndex.cpp.s
-.PHONY : src/RDFIndex.s
+src/b_query_evaluate.s: src/b_query_evaluate.cpp.s
+.PHONY : src/b_query_evaluate.s
 
 # target to generate assembly for a file
-src/RDFIndex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.s
-.PHONY : src/RDFIndex.cpp.s
+src/b_query_evaluate.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.s
+.PHONY : src/b_query_evaluate.cpp.s
 
-src/System.o: src/System.cpp.o
-.PHONY : src/System.o
+src/c_query_plan.o: src/c_query_plan.cpp.o
+.PHONY : src/c_query_plan.o
 
 # target to build an object file
-src/System.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.o
-.PHONY : src/System.cpp.o
+src/c_query_plan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o
+.PHONY : src/c_query_plan.cpp.o
 
-src/System.i: src/System.cpp.i
-.PHONY : src/System.i
+src/c_query_plan.i: src/c_query_plan.cpp.i
+.PHONY : src/c_query_plan.i
 
 # target to preprocess a source file
-src/System.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.i
-.PHONY : src/System.cpp.i
+src/c_query_plan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.i
+.PHONY : src/c_query_plan.cpp.i
 
-src/System.s: src/System.cpp.s
-.PHONY : src/System.s
+src/c_query_plan.s: src/c_query_plan.cpp.s
+.PHONY : src/c_query_plan.s
 
 # target to generate assembly for a file
-src/System.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/System.cpp.s
-.PHONY : src/System.cpp.s
+src/c_query_plan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.s
+.PHONY : src/c_query_plan.cpp.s
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/d_turtle_parse.o: src/d_turtle_parse.cpp.o
+.PHONY : src/d_turtle_parse.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/d_turtle_parse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o
+.PHONY : src/d_turtle_parse.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/d_turtle_parse.i: src/d_turtle_parse.cpp.i
+.PHONY : src/d_turtle_parse.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/d_turtle_parse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.i
+.PHONY : src/d_turtle_parse.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/d_turtle_parse.s: src/d_turtle_parse.cpp.s
+.PHONY : src/d_turtle_parse.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/d_turtle_parse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.s
+.PHONY : src/d_turtle_parse.cpp.s
+
+src/e_query_parse.o: src/e_query_parse.cpp.o
+.PHONY : src/e_query_parse.o
+
+# target to build an object file
+src/e_query_parse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o
+.PHONY : src/e_query_parse.cpp.o
+
+src/e_query_parse.i: src/e_query_parse.cpp.i
+.PHONY : src/e_query_parse.i
+
+# target to preprocess a source file
+src/e_query_parse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.i
+.PHONY : src/e_query_parse.cpp.i
+
+src/e_query_parse.s: src/e_query_parse.cpp.s
+.PHONY : src/e_query_parse.s
+
+# target to generate assembly for a file
+src/e_query_parse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.s
+.PHONY : src/e_query_parse.cpp.s
+
+src/f_cli.o: src/f_cli.cpp.o
+.PHONY : src/f_cli.o
+
+# target to build an object file
+src/f_cli.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o
+.PHONY : src/f_cli.cpp.o
+
+src/f_cli.i: src/f_cli.cpp.i
+.PHONY : src/f_cli.i
+
+# target to preprocess a source file
+src/f_cli.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.i
+.PHONY : src/f_cli.cpp.i
+
+src/f_cli.s: src/f_cli.cpp.s
+.PHONY : src/f_cli.s
+
+# target to generate assembly for a file
+src/f_cli.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.s
+.PHONY : src/f_cli.cpp.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-RDF-store.dir/build.make CMakeFiles/my-RDF-store.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
 
 # Help Target
 help:
@@ -234,18 +306,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my-RDF-store"
-	@echo "... src/Query.o"
-	@echo "... src/Query.i"
-	@echo "... src/Query.s"
-	@echo "... src/RDFIndex.o"
-	@echo "... src/RDFIndex.i"
-	@echo "... src/RDFIndex.s"
-	@echo "... src/System.o"
-	@echo "... src/System.i"
-	@echo "... src/System.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/a_index.o"
+	@echo "... src/a_index.i"
+	@echo "... src/a_index.s"
+	@echo "... src/b_query_evaluate.o"
+	@echo "... src/b_query_evaluate.i"
+	@echo "... src/b_query_evaluate.s"
+	@echo "... src/c_query_plan.o"
+	@echo "... src/c_query_plan.i"
+	@echo "... src/c_query_plan.s"
+	@echo "... src/d_turtle_parse.o"
+	@echo "... src/d_turtle_parse.i"
+	@echo "... src/d_turtle_parse.s"
+	@echo "... src/e_query_parse.o"
+	@echo "... src/e_query_parse.i"
+	@echo "... src/e_query_parse.s"
+	@echo "... src/f_cli.o"
+	@echo "... src/f_cli.i"
+	@echo "... src/f_cli.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

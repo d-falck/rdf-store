@@ -69,79 +69,127 @@ include CMakeFiles/my-RDF-store.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/my-RDF-store.dir/flags.make
 
-CMakeFiles/my-RDF-store.dir/src/Query.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
-CMakeFiles/my-RDF-store.dir/src/Query.cpp.o: ../src/Query.cpp
-CMakeFiles/my-RDF-store.dir/src/Query.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my-RDF-store.dir/src/Query.cpp.o"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/Query.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/Query.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/Query.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp"
+CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o: ../src/a_index.cpp
+CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/a_index.cpp"
 
-CMakeFiles/my-RDF-store.dir/src/Query.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/Query.cpp.i"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp" > CMakeFiles/my-RDF-store.dir/src/Query.cpp.i
+CMakeFiles/my-RDF-store.dir/src/a_index.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/a_index.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/a_index.cpp" > CMakeFiles/my-RDF-store.dir/src/a_index.cpp.i
 
-CMakeFiles/my-RDF-store.dir/src/Query.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/Query.cpp.s"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/Query.cpp" -o CMakeFiles/my-RDF-store.dir/src/Query.cpp.s
+CMakeFiles/my-RDF-store.dir/src/a_index.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/a_index.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/a_index.cpp" -o CMakeFiles/my-RDF-store.dir/src/a_index.cpp.s
 
-CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
-CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o: ../src/RDFIndex.cpp
-CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp"
+CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o: ../src/b_query_evaluate.cpp
+CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/b_query_evaluate.cpp"
 
-CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.i"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp" > CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.i
+CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/b_query_evaluate.cpp" > CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.i
 
-CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.s"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/RDFIndex.cpp" -o CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.s
+CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/b_query_evaluate.cpp" -o CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.s
 
-CMakeFiles/my-RDF-store.dir/src/System.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
-CMakeFiles/my-RDF-store.dir/src/System.cpp.o: ../src/System.cpp
-CMakeFiles/my-RDF-store.dir/src/System.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my-RDF-store.dir/src/System.cpp.o"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/System.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/System.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/System.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp"
+CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o: ../src/c_query_plan.cpp
+CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/c_query_plan.cpp"
 
-CMakeFiles/my-RDF-store.dir/src/System.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/System.cpp.i"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp" > CMakeFiles/my-RDF-store.dir/src/System.cpp.i
+CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/c_query_plan.cpp" > CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.i
 
-CMakeFiles/my-RDF-store.dir/src/System.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/System.cpp.s"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/System.cpp" -o CMakeFiles/my-RDF-store.dir/src/System.cpp.s
+CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/c_query_plan.cpp" -o CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.s
 
-CMakeFiles/my-RDF-store.dir/src/main.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
-CMakeFiles/my-RDF-store.dir/src/main.cpp.o: ../src/main.cpp
-CMakeFiles/my-RDF-store.dir/src/main.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my-RDF-store.dir/src/main.cpp.o"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/main.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/main.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/main.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp"
+CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o: ../src/d_turtle_parse.cpp
+CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/d_turtle_parse.cpp"
 
-CMakeFiles/my-RDF-store.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/main.cpp.i"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp" > CMakeFiles/my-RDF-store.dir/src/main.cpp.i
+CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/d_turtle_parse.cpp" > CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.i
 
-CMakeFiles/my-RDF-store.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/main.cpp.s"
-	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/main.cpp" -o CMakeFiles/my-RDF-store.dir/src/main.cpp.s
+CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/d_turtle_parse.cpp" -o CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.s
+
+CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o: ../src/e_query_parse.cpp
+CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/e_query_parse.cpp"
+
+CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/e_query_parse.cpp" > CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.i
+
+CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/e_query_parse.cpp" -o CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.s
+
+CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o: ../src/f_cli.cpp
+CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/f_cli.cpp"
+
+CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/f_cli.cpp" > CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.i
+
+CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/f_cli.cpp" -o CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.s
+
+CMakeFiles/my-RDF-store.dir/src/utils.cpp.o: CMakeFiles/my-RDF-store.dir/flags.make
+CMakeFiles/my-RDF-store.dir/src/utils.cpp.o: ../src/utils.cpp
+CMakeFiles/my-RDF-store.dir/src/utils.cpp.o: CMakeFiles/my-RDF-store.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my-RDF-store.dir/src/utils.cpp.o"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-RDF-store.dir/src/utils.cpp.o -MF CMakeFiles/my-RDF-store.dir/src/utils.cpp.o.d -o CMakeFiles/my-RDF-store.dir/src/utils.cpp.o -c "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/utils.cpp"
+
+CMakeFiles/my-RDF-store.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my-RDF-store.dir/src/utils.cpp.i"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/utils.cpp" > CMakeFiles/my-RDF-store.dir/src/utils.cpp.i
+
+CMakeFiles/my-RDF-store.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my-RDF-store.dir/src/utils.cpp.s"
+	/usr/local/opt/llvm/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/src/utils.cpp" -o CMakeFiles/my-RDF-store.dir/src/utils.cpp.s
 
 # Object files for target my-RDF-store
 my__RDF__store_OBJECTS = \
-"CMakeFiles/my-RDF-store.dir/src/Query.cpp.o" \
-"CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o" \
-"CMakeFiles/my-RDF-store.dir/src/System.cpp.o" \
-"CMakeFiles/my-RDF-store.dir/src/main.cpp.o"
+"CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o" \
+"CMakeFiles/my-RDF-store.dir/src/utils.cpp.o"
 
 # External object files for target my-RDF-store
 my__RDF__store_EXTERNAL_OBJECTS =
 
-my-RDF-store: CMakeFiles/my-RDF-store.dir/src/Query.cpp.o
-my-RDF-store: CMakeFiles/my-RDF-store.dir/src/RDFIndex.cpp.o
-my-RDF-store: CMakeFiles/my-RDF-store.dir/src/System.cpp.o
-my-RDF-store: CMakeFiles/my-RDF-store.dir/src/main.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/a_index.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/b_query_evaluate.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/c_query_plan.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/d_turtle_parse.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/e_query_parse.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/f_cli.cpp.o
+my-RDF-store: CMakeFiles/my-RDF-store.dir/src/utils.cpp.o
 my-RDF-store: CMakeFiles/my-RDF-store.dir/build.make
 my-RDF-store: CMakeFiles/my-RDF-store.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable my-RDF-store"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/dfalck/My Drive/Oxford/Academic/Part C/Taught courses/Database Systems Implementation/Mini-project/source/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable my-RDF-store"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my-RDF-store.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

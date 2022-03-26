@@ -50,8 +50,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/usr/local/opt/llvm/bin/clang-13
+//C compiler
+CMAKE_C_COMPILER:STRING=/usr/local/opt/llvm/bin/clang-13
 
 //LLVM archiver
 CMAKE_C_COMPILER_AR:FILEPATH=/usr/local/Cellar/llvm/13.0.1_1/bin/llvm-ar

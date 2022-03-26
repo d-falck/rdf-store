@@ -1,14 +1,12 @@
 #pragma once
 #include <functional>
 #include <optional>
-#include <types.h>
 #include <RDFIndex.h>
-#include <Query.h>
+#include <utils.h>
 
 class System {
     public:
-        void select_query_string(std::string);
-        void count_query_string(std::string);
+        void evaluate_query(std::string, bool);
         void load_triples(std::string);
 
     private:
@@ -17,7 +15,6 @@ class System {
         std::vector<std::string> _stored_resources;
         std::unordered_map<std::string, Resource> _resource_ids;
 
-        void _evaluate_query(Query, bool);
         void _nested_index_loop_join(VariableMap&, int, bool,
             std::vector<TriplePattern>, std::vector<Variable>);
         void _print_mapped_values(VariableMap, std::vector<Variable>);
