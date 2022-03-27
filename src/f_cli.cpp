@@ -91,11 +91,11 @@ int main() {
                     break;
                 }
                 case Command::SELECT: {
-                    system.evaluate_query(details, false); // Print disabled
+                    system.evaluate_query(details, true); // Print enabled
                     break;
                 }
                 case Command::COUNT: {
-                    system.evaluate_query(details, true); // Print enabled
+                    system.evaluate_query(details, false); // Print disabled
                     break;
                 } 
                 case Command::QUIT: {
