@@ -41,14 +41,16 @@ void System::evaluate_query(std::string query_string,
     VariableMap map;
 
     // Print pattern evaluation order if enabled - useful for debugging
-    std::cout << std::endl << "Pattern evaluation order:" << std::endl;
-    std::cout << "=========================" << std::endl;
-    for (auto [a,b,c] : patterns) {
-        std::cout << _term_to_string(a) << " " << _term_to_string(b)
-                  << " " << _term_to_string(c) << std::endl;
+    if (output_join_order) {
+        std::cout << std::endl << "Pattern evaluation order:" << std::endl;
+        std::cout << "=========================" << std::endl;
+        for (auto [a,b,c] : patterns) {
+            std::cout << _term_to_string(a) << " " << _term_to_string(b)
+                    << " " << _term_to_string(c) << std::endl;
+        }
+        std::cout << "=========================" << std::endl << std::endl;
     }
-    std::cout << "=========================" << std::endl << std::endl;
-
+    
     // Initiate recursive join
     if (print) {
         std::cout << "----------" << std::endl;

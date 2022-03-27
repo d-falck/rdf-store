@@ -32,7 +32,7 @@
  * opening brace occurs on the first line. It should thus be possible to paste
  * a multi-line query from a file into the command line and have it executed.
  * 
- * If the executable is invoked with argument `-o` then all `SELECT` and `COUNT`
+ * If the executable is invoked with flag `-o` then all `SELECT` and `COUNT`
  * commands will also print the join order used to stdout.
  * 
  * @return int 0 on successful termination
