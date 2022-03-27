@@ -37,6 +37,7 @@
 int main() {
     System system;
     bool ready = true;
+    bool loading_triples = false;
 
     while (ready) {
         // Wait for command
@@ -77,13 +78,16 @@ int main() {
                     // Load from file
                     std::ifstream file(filename);
                     if (!file.is_open())
-                        throw std::invalid_argument("Invalid file.");
+                        throw std::invalid_argument(
+                            "File not found. Check the path and try again.");
                     std::stringstream stream;
                     stream << file.rdbuf();
 
                     // Process triples
+                    loading_triples = true;
                     system.load_triples(stream.str());
                     file.close();
+                    loading_triples = false;
                     break;
                 }
                 case Command::SELECT: {
@@ -101,6 +105,12 @@ int main() {
             }
         } catch (std::invalid_argument e) {
             std::cout << "Error: " << e.what() << std::endl;
+            if (loading_triples) {
+                std::cout << "Input file processing terminated due to error. "
+                          << "Please note that any triples already processed "
+                          << "may be retained." << std::endl;
+                loading_triples = false;
+            }
         }
     }
     return 0;
