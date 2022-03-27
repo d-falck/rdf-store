@@ -22,7 +22,7 @@
  */
 class System {
     public:
-        void evaluate_query(std::string, bool);
+        void evaluate_query(std::string, bool, bool);
         void load_triples(std::string);
 
     private:
