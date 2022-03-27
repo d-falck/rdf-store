@@ -1,6 +1,20 @@
+/**
+ * @file utils.cpp
+ * @author Candidate 1034792
+ * @brief Provides utility functions for the various implementation components
+ */
 #include <unordered_set>
 #include <utils.h>
 
+/**
+ * @brief Applies a variable map to a term
+ * 
+ * Leaves the term unchanged unless the term is a variable contained in the map.
+ * 
+ * @param map 
+ * @param term 
+ * @return Term 
+ */
 Term utils::apply_map(VariableMap map, Term term) {
     if (term.index() == 1) return term;
     else {
@@ -10,6 +24,12 @@ Term utils::apply_map(VariableMap map, Term term) {
     }
 }
 
+/**
+ * @brief Gets the type of a triple pattern
+ * 
+ * @param pattern 
+ * @return PatternType 
+ */
 PatternType utils::get_pattern_type(TriplePattern pattern) {
     auto [a,b,c] = pattern;
     if (a.index() == 0) {
@@ -21,6 +41,12 @@ PatternType utils::get_pattern_type(TriplePattern pattern) {
     }
 }
 
+/**
+ * @brief Gets the set of variables mentioned in a triple pattern
+ * 
+ * @param pattern 
+ * @return std::unordered_set<Variable> 
+ */
 std::unordered_set<Variable> utils::get_variables(TriplePattern pattern) {
     std::unordered_set<Variable> output;
     auto [a,b,c] = pattern;
@@ -30,6 +56,16 @@ std::unordered_set<Variable> utils::get_variables(TriplePattern pattern) {
     return output;
 }
 
+/**
+ * @brief Computes the intersection of two unordered sets
+ * 
+ * Quadratic complexity.
+ * 
+ * @tparam T 
+ * @param set1 
+ * @param set2 
+ * @return std::unordered_set<T> 
+ */
 template <class T>
 std::unordered_set<T> utils::intersect(std::unordered_set<T> set1,
                                        std::unordered_set<T> set2) {

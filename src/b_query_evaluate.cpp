@@ -1,3 +1,11 @@
+/**
+ * @file b_query_evaluate.cpp
+ * @author Candidate 1034792
+ * @brief Implementation component (b)
+ * 
+ * The engine for evaluating BGP SPARQL queries.
+ * Partial implementation of the System class, alongside `d_turtle_parse.cpp`.
+ */
 #include <chrono>
 #include <exception>
 #include <iostream>
@@ -7,6 +15,18 @@
 #include <Query.h>
 #include <utils.h>
 
+/**
+ * @brief Evaluates a BGP SPARQL query string over currently stored triples
+ * 
+ * Prints number of results and time taken to stdout, optionally also printing
+ * the query results themselves. (This is optional to facilitate timing.)
+ * Implements the query evaluation algorithm suggested in Question 1
+ * of the paper.
+ * 
+ * @param query_string BGP SPARQL query string to be evalauted
+ * @param print Whether to print individual results (as opposed to just
+ *      the result count and time taken)
+ */
 void System::evaluate_query(std::string query_string, bool print) {
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -36,6 +56,20 @@ void System::evaluate_query(std::string query_string, bool print) {
               << elapsed_ms << " ms." << std::endl;
 }
 
+/**
+ * @brief Recursive helper function for System::evaluate_query
+ * 
+ * Performs a recursive nested index loop join on patterns \p i onwards
+ * with currently assigned variable bindings \p map. Implements the algorithm
+ * described in Question 1 of the paper.
+ * 
+ * @param map Already-determined variable mappings to join with
+ * @param i Index of first pattern to join with current bindings
+ * @param print Whether to print the results (if no patterns left to join)
+ * @param patterns Full list of patterns to evaluate, including ones
+ *      already processed
+ * @param variables List of variables we wish to map to resources
+ */
 void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
                                      std::vector<TriplePattern> patterns,
                                      std::vector<Variable> variables) {
@@ -58,6 +92,15 @@ void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
     }
 }
 
+/**
+ * @brief Helper function to apply a mapping to variables and print the results
+ * 
+ * Requires access to the underlying System object so that Resource integer
+ * representations can be decoded into URI strings.
+ * 
+ * @param map 
+ * @param variables 
+ */
 void System::_print_mapped_values(VariableMap map,
                                   std::vector<Variable> variables) {
     for (Variable var : variables) {

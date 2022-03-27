@@ -1,4 +1,11 @@
-#include <algorithm>
+/**
+ * @file e_query_parse.cpp
+ * @author Candidate 1034792
+ * @brief Implementation component (e)
+ * 
+ * The parser for SPARQL queries.
+ * Partial implementation of the Query class, alongside `c_query_plan.cpp`.
+ */
 #include <exception>
 #include <iostream>
 #include <iterator>
@@ -6,6 +13,17 @@
 #include <Query.h>
 #include <utils.h>
 
+/**
+ * @brief Constructs a Query object from a SPARQL query string
+ * 
+ * As this method doesn't have access to the System object from which it is
+ * likely to be called, it requires a \p resource_encoder function to be passed
+ * which encodes resource URIs into integer IDs.
+ * 
+ * @param query_string BGP SPARQL query string to be parsed
+ * @param resource_encoder Function which encodes resource URIs into integer IDs
+ * @return Query Object representing this query
+ */
 Query Query::parse(std::string query_string,
                    std::function<Resource(std::string)> resource_encoder) {
     // Ensure braces are surrounded by whitespace (for stream later)
@@ -57,12 +75,28 @@ Query Query::parse(std::string query_string,
     return Query(vars, pats);
 }
 
+/**
+ * @brief Helper function to parse a variable from a string
+ * 
+ * @param str String representing a variable, must begin with `?`
+ * @return Variable Object representing this variable
+ */
 Variable Query::_parse_variable(std::string str) {
     if (str[0] != '?')
         throw std::invalid_argument("Variable doesn't begin with ?");
     return (Variable) str.substr(0, str.npos);
 }
 
+/**
+ * @brief Helper function to parse a term from a string
+ * 
+ * Requires access to a \p resource_encoder callable
+ * 
+ * @param str String representing a resource or variable. Either begins in `?`
+ *      or is wrapped in `""` or `<>`
+ * @param resource_encoder Function which encodes resource URIs into integer IDs
+ * @return Term Object representing this variable or resource
+ */
 Term Query::_parse_term(std::string str,
                         std::function<Resource(std::string)> resource_encoder) {
     if (str[0] == '?') return Term{_parse_variable(str)};

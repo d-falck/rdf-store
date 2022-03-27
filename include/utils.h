@@ -1,3 +1,13 @@
+/**
+ * @file utils.h
+ * @author Candidate 1034792
+ * @brief Declarations of types, values and functions used by other components
+ * 
+ * Contains declarations of type aliases, special constants, enumerations
+ * and utility functions used by various components of the system.
+ * 
+ * Utility function documentation provided in implementation file `utils.cpp`.
+ */
 #pragma once
 #include <string>
 #include <tuple>
@@ -29,7 +39,7 @@ const std::unordered_map<std::string,Command> which_command({
     {"COUNT", Command::COUNT}, {"QUIT", Command::QUIT}
 });
 
-// Utility functions
+// Utility functions - see implementation file `utils.cpp`
 namespace utils {
 
 PatternType get_pattern_type(TriplePattern);
@@ -41,6 +51,8 @@ template <class T> std::unordered_set<T> intersect(std::unordered_set<T>,
 }
 
 // Inject custom hash function for tuples into std
+// Necessary for use of hash-maps and hash-sets including tuples, for which
+// no standard hash specialization is provided in STL
 template <class T>
 inline void _hash_combine(std::size_t& seed, const T& v) {
     seed ^= std::hash<T>()(v) + 0x9e3779b9 + (seed<<6) + (seed>>2);

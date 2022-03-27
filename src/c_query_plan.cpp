@@ -1,3 +1,11 @@
+/**
+ * @file c_query_plan.cpp
+ * @author Candidate 1034792
+ * @brief Implementation component (c)
+ * 
+ * The greedy join order optimisation query planner.
+ * Partial implementation of the Query class, alongside `e_query_parse.cpp`.
+ */
 #include <algorithm>
 #include <exception>
 #include <iostream>
@@ -7,6 +15,17 @@
 #include <Query.h>
 #include <utils.h>
 
+/**
+ * @brief Plans execution ordern of the query according to a greedy heuristic
+ * 
+ * Applies the greedy join order optimisation algorithm suggested in Question
+ * 1 of the paper based on the heuristic from the paper
+ * 'Heuristics-based query optimisation for SPARQL'. This uses an approximate
+ * ordering of triple pattern types to repeatedly pick a pattern with the
+ * least expected join cost until all patterns have been processed.
+ * 
+ * @return std::vector<TriplePattern> 
+ */
 std::vector<TriplePattern> Query::plan() {
     // Maintain processed & unprocessed pattern sets and set of bound variables
     std::unordered_set<TriplePattern> unprocessed(patterns);
@@ -41,6 +60,17 @@ std::vector<TriplePattern> Query::plan() {
     return processed;
 }
 
+/**
+ * @brief Calculates the heuristic score of a triple pattern
+ * 
+ * Assigns score based on position in the pattern type ordering suggested in
+ * the paper Heuristics-based query optimisation for SPARQL'.
+ * 
+ * @param pattern Triple pattern to score
+ * @param bound List of currently-bound variables; these will be treated as
+ * resources if they occur in \p pattern
+ * @return int Position in the query type ordering
+ */
 int Query::_get_score(TriplePattern pattern,
                       std::unordered_set<Variable> bound) {
     auto is_bound = [=] (auto t) {

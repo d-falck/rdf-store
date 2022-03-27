@@ -1,9 +1,27 @@
+/**
+ * @file a_index.cpp
+ * @author Candidate 1034792
+ * @brief Implementation component (a)
+ * 
+ * RDF indexing data structure that implements Add and Evaluate functions.
+ * Full implementation of the RDFIndex class.
+ */
 #include <stdexcept>
 #include <string>
 #include <tuple>
 #include <RDFIndex.h>
 #include <utils.h>
 
+/**
+ * @brief Adds a triple to the index structure
+ * 
+ * Implements the algorithm described by the candidate in
+ * Question 1 of the paper.
+ * 
+ * @param s Subject resource
+ * @param p Predicate resource
+ * @param o Object resource
+ */
 void RDFIndex::add(Resource s, Resource p, Resource o) {
     // Only proceed if not already present
     try {_index_SPO.at(std::make_tuple(s, p, o));}
@@ -47,8 +65,24 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
     }
 }
 
+/**
+ * @brief Evaluates a triple pattern over the data in the index structure
+ * 
+ * Returns an iterator over all variable mappings resulting in a match for the
+ * given triple pattern. Specifically, a stateful lambda function is returned
+ * which, when called, returns an optional type holding the next matching 
+ * ariable mapping if one exists, and holding nothing otherwise.
+ * 
+ * @param a Subject term (holding a variable or resource)
+ * @param b Predicate term (holding a variable or resource)
+ * @param c Object term (holding a variable or resource)
+ * @return std::function<std::optional<VariableMap>()> Call this repeatedly to
+ *      iterate over all matching variable mappings.
+ */
 std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
                                                                Term c) {
+    // We declare four quantities and define them separately for each query type
+
     // Predicate for a row to be a valid match
     std::function<bool(_TableRow*)> condition = [](_TableRow* row) {
         return true; };
