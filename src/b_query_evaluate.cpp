@@ -10,12 +10,14 @@
 void System::evaluate_query(std::string query_string, bool print) {
     auto start = std::chrono::high_resolution_clock::now();
 
+    // Parse query and run join order optimizer
     Query query = Query::parse(query_string, [=] (std::string name) {
         return _encode_resource(name); });
     std::vector<TriplePattern> patterns = query.plan();
     std::vector<Variable> variables = query.variables;
     VariableMap map;
 
+    // Initiate recursive join
     if (print) {
         std::cout << "----------" << std::endl;
         for (Variable var : variables)
@@ -26,6 +28,7 @@ void System::evaluate_query(std::string query_string, bool print) {
     _nested_index_loop_join(map, 0, print, patterns, variables);
     if (print) std::cout << "----------" << std::endl;
 
+    // Summarize output
     auto end = std::chrono::high_resolution_clock::now();
     int elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>
         (end-start).count();
@@ -40,20 +43,17 @@ void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
         _result_counter++;
         if (print) _print_mapped_values(map, variables);
     } else {
-        TriplePattern pattern = patterns[i];
-        Term a = std::get<0>(pattern);
-        Term b = std::get<1>(pattern);
-        Term c = std::get<2>(pattern);
-        Term sigma_a = utils::apply_map(map, a);
-        Term sigma_b = utils::apply_map(map, b);
-        Term sigma_c = utils::apply_map(map, c);
+        auto [a,b,c] = patterns[i];
+        // Get iterator over variable mappings matching this pattern
         std::function<std::optional<VariableMap>()> generate = _index.evaluate(
-            sigma_a, sigma_b, sigma_c);
+            utils::apply_map(map, a), utils::apply_map(map, b),
+            utils::apply_map(map, c));
+        // Make recursive call for each map in the iterator
         std::optional<VariableMap> rho;
         while ((rho = generate()).has_value()) {
-            for (auto [var, res] : *rho) map[var] = res;
+            for (auto [var, res] : *rho) map[var] = res; // Add to map
             _nested_index_loop_join(map, i+1, print, patterns, variables);
-            for (auto [var, res] : *rho) map.erase(var);
+            for (auto [var, res] : *rho) map.erase(var); // Remove from map
         }
     }
 }

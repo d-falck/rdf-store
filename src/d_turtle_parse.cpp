@@ -28,6 +28,7 @@ void System::load_triples(std::string str) {
         _index.add(s, p, o);
     }
 
+    // Print summary
     auto end = std::chrono::high_resolution_clock::now();
     int elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>
         (end-start).count();
@@ -41,6 +42,7 @@ Resource System::_encode_resource(std::string name) {
                  (name[0] == '"' && name[n-1] == '"');
     if (!valid) throw std::invalid_argument(
             "Resources must be enclosed in quotes or angle brackets");
+    // Add this resource to our hash map if we haven't seen it before
     if (_resource_ids.count(name) == 0) {
         _stored_resources.push_back(name);
         _resource_ids[name] = _stored_resources.size()-1;

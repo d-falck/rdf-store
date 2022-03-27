@@ -8,16 +8,21 @@
 #include <utils.h>
 
 std::vector<TriplePattern> Query::plan() {
+    // Maintain processed & unprocessed pattern sets and set of bound variables
     std::unordered_set<TriplePattern> unprocessed(patterns);
     std::vector<TriplePattern> processed;
     std::unordered_set<Variable> bound;
 
+    // Repeatedly process a pattern until we have none left
     while (!unprocessed.empty()) {
         int best_score = 100;
         TriplePattern best_pattern = INVALID_PATTERN;
+
+        // Pick the pattern with the lowest heuristic score
         for (TriplePattern pattern : unprocessed) {
             int score = _get_score(pattern, bound);
             std::unordered_set<Variable> vars = utils::get_variables(pattern);
+            // Don't pick if it'll result in a cross product
             bool condition = (score < best_score) &&
                 (vars.empty() ||
                  !utils::intersect<Variable>(vars, bound).empty());
@@ -26,6 +31,8 @@ std::vector<TriplePattern> Query::plan() {
                 best_score = score;
             }
         }
+
+        // Process the chosen pattern and track the newly-bound variables
         processed.push_back(best_pattern);
         std::unordered_set<Variable> vars = utils::get_variables(best_pattern);
         for (Variable var : vars) bound.insert(var);

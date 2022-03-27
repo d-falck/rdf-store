@@ -49,17 +49,24 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
 
 std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
                                                                Term c) {
+    // Predicate for a row to be a valid match
     std::function<bool(_TableRow*)> condition = [](_TableRow* row) {
         return true; };
+    // Returns the variable mapping matching a row
     std::function<VariableMap(_TableRow*)> implied_map;
+    // The first row to consider
     _TableRow* head;
+    // Gets the next matching row given the current one
     std::function<_TableRow*(_TableRow*)> next;
 
+    // Exhaust the 8 possible query types, defining the above 4
+    // quantities on a case-by-case basis
     switch (utils::get_pattern_type(std::make_tuple(a, b, c))) {
     case XYZ: {
         Variable x = std::get<Variable>(a);
         Variable y = std::get<Variable>(b);
         Variable z = std::get<Variable>(c);
+        // Enable filtering if we have repeated variables
         if (x == y && y == z) condition = [](_TableRow* row) {
                 return row->s == row->p && row->p == row->o; };
         else if (x == y) condition = [](_TableRow* row) {
@@ -68,6 +75,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
                 return row->p == row->o; };
         else if (x == z) condition = [](_TableRow* row) {
                 return row->s == row->o; };
+        // Start at top of triple table and traverse in order
         head = _table[0];
         int i = 0;
         next = [=](_TableRow* row) mutable {
@@ -76,11 +84,13 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         implied_map = [=](_TableRow* row) {
             return VariableMap{{x,row->s},{y,row->p},{z,row->o}}; };
         break; }
-    case SYZ: {
+
+    case SYZ: { // Similar for the remaining cases
         Resource s = std::get<Resource>(a);
         Variable y = std::get<Variable>(b);
         Variable z = std::get<Variable>(c);
         if (y == z) condition = [](_TableRow* row) { return row->p == row->o; };
+        // Scan from head of SP-list
         head = _index_S[s];
         next = [=](_TableRow* row) {
             do { row = row->next_SP; } while (row != nullptr
@@ -94,6 +104,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Variable y = std::get<Variable>(b);
         Resource o = std::get<Resource>(c);
         if (x == y) condition = [](_TableRow* row) { return row->s == row->p; };
+        // Scan from head of OP-list
         head = _index_O[o];
         next = [=](_TableRow* row) {
             do { row = row->next_OP; } while (row != nullptr
@@ -107,6 +118,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Resource p = std::get<Resource>(b);
         Variable z = std::get<Variable>(c);
         if (x == z) condition = [](_TableRow* row) { return row->s == row->o; };
+        // Scan from head of P-list
         head = _index_P[p];
         next = [=](_TableRow* row) {
             do { row = row->next_P; } while (row != nullptr && !condition(row));
@@ -118,6 +130,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Resource s = std::get<Resource>(a);
         Resource p = std::get<Resource>(b);
         Variable z = std::get<Variable>(c);
+        // Scan p-group within SP-list
         head = _index_SP[std::make_tuple(s,p)];
         next = [=](_TableRow* row) {
             row = row->next_SP;
@@ -128,6 +141,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Variable x = std::get<Variable>(a);
         Resource p = std::get<Resource>(b);
         Resource o = std::get<Resource>(c);
+        // Scan p-group within OP-list
         head = _index_OP[std::make_tuple(o,p)];
         next = [=](_TableRow* row) {
             row = row->next_OP;
@@ -138,6 +152,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Resource s = std::get<Resource>(a);
         Variable y = std::get<Variable>(b);
         Resource o = std::get<Resource>(c);
+        // Scan from head of shorter of SP- and OP-lists
         if (_len_S[_index_S[s]] >= _len_O[_index_O[o]]) {
             condition = [=](_TableRow* row) { return row->o == o; };
             head = _index_S[s];
@@ -158,14 +173,18 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
         Resource s = std::get<Resource>(a);
         Resource p = std::get<Resource>(b);
         Resource o = std::get<Resource>(c);
+        // Direct look-up
         head = _index_SPO[std::make_tuple(s,p,o)];
         next = [](_TableRow* row) { return nullptr; };
         implied_map = [=](_TableRow* row) { return VariableMap{}; };
         break; }
     }
 
+    // Advance to first valid match if necessary
     _TableRow* current = (head == nullptr || condition(head)) ? head
                                                               : next(head);
+    // Return iterating function that repeatedly calls `next` on the
+    // current row and returns the implied variable mapping
     return [=]() mutable {
         if (current == nullptr) return std::optional<VariableMap>();
         else {

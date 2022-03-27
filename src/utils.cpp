@@ -40,5 +40,6 @@ std::unordered_set<T> utils::intersect(std::unordered_set<T> set1,
     return output;
 }
 
+// Explicit instantiation necessary for separate template declaration
 template std::unordered_set<Variable> utils::intersect(
     std::unordered_set<Variable>, std::unordered_set<Variable>);
