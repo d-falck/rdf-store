@@ -84,7 +84,7 @@ Query Query::parse(std::string query_string,
 Variable Query::_parse_variable(std::string str) {
     if (str[0] != '?')
         throw std::invalid_argument("Variable doesn't begin with ?");
-    return (Variable) str.substr(0, str.npos);
+    return (Variable) str.substr(1, str.npos);
 }
 
 /**

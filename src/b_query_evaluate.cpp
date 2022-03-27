@@ -37,6 +37,15 @@ void System::evaluate_query(std::string query_string, bool print) {
     std::vector<Variable> variables = query.variables;
     VariableMap map;
 
+    // Print pattern evaluation order
+    std::cout << "Pattern evaluation order:" << std::endl;
+    std::cout << "=========================" << std::endl;
+    for (auto [a,b,c] : patterns) {
+        std::cout << _term_to_string(a) << " " << _term_to_string(b)
+                  << " " << _term_to_string(c) << std::endl;
+    }
+    std::cout << "=========================" << std::endl;
+
     // Initiate recursive join
     if (print) {
         std::cout << "----------" << std::endl;
@@ -109,4 +118,9 @@ void System::_print_mapped_values(VariableMap map,
         std::cout << _decode_resource(map[var]) << "\t";
     }
     std::cout << std::endl;
+}
+
+std::string System::_term_to_string(Term term) {
+    if (term.index() == 0) return std::get<Variable>(term);
+    else return _decode_resource(std::get<Resource>(term));
 }

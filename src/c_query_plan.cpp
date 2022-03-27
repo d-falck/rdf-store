@@ -31,7 +31,7 @@ std::vector<TriplePattern> Query::plan() {
     std::unordered_set<TriplePattern> unprocessed(patterns);
     std::vector<TriplePattern> processed;
     std::unordered_set<Variable> bound;
-
+    
     // Repeatedly process a pattern until we have none left
     while (!unprocessed.empty()) {
         int best_score = 100;
