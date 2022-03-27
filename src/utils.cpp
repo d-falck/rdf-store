@@ -40,5 +40,5 @@ std::unordered_set<T> utils::intersect(std::unordered_set<T> set1,
     return output;
 }
 
-template std::unordered_set<Variable>
-    utils::intersect(std::unordered_set<Variable>, std::unordered_set<Variable>);
+template std::unordered_set<Variable> utils::intersect(
+    std::unordered_set<Variable>, std::unordered_set<Variable>);

@@ -14,4 +14,10 @@ class Query {
             variables(v), patterns(p) {};
         static Query parse(std::string, std::function<Resource(std::string)>);
         std::vector<TriplePattern> plan();
+
+    private:
+        static int _get_score(TriplePattern, std::unordered_set<Variable>);
+        static Variable _parse_variable(std::string);
+        static Term _parse_term(std::string,
+                                std::function<Resource(std::string)>);
 };

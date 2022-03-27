@@ -17,8 +17,9 @@ using VariableMap = std::unordered_map<Variable, Resource>;
 // Special constants
 const Resource INVALID_RESOURCE = -1;
 const Term INVALID_TERM = Term{INVALID_RESOURCE};
-const TriplePattern INVALID_PATTERN =
-    std::make_tuple(INVALID_TERM, INVALID_TERM, INVALID_TERM);
+const TriplePattern INVALID_PATTERN = std::make_tuple(INVALID_TERM,
+                                                      INVALID_TERM,
+                                                      INVALID_TERM);
 
 // Enumerations
 enum PatternType {XYZ, SYZ, XPZ, XYO, SPZ, SYO, XPO, SPO};
@@ -30,11 +31,13 @@ const std::unordered_map<std::string,Command> which_command({
 
 // Utility functions
 namespace utils {
-    PatternType get_pattern_type(TriplePattern);
-    Term apply_map(VariableMap, Term);
-    std::unordered_set<Variable> get_variables(TriplePattern);
-    template <class T> std::unordered_set<T>
-        intersect(std::unordered_set<T>, std::unordered_set<T>);
+
+PatternType get_pattern_type(TriplePattern);
+Term apply_map(VariableMap, Term);
+std::unordered_set<Variable> get_variables(TriplePattern);
+template <class T> std::unordered_set<T> intersect(std::unordered_set<T>,
+                                                   std::unordered_set<T>);
+
 }
 
 // Inject custom hash function for tuples into std
@@ -46,8 +49,8 @@ template<typename ...TT>
 struct std::hash<std::tuple<TT...>> {
     std::size_t operator()(const std::tuple<TT...>& tuple) const noexcept {
         size_t seed = 0;
-        std::apply([&](auto ...elems){(_hash_combine(seed, elems),...);},
-                   tuple);
+        std::apply([&](auto ...elems) { 
+            (_hash_combine(seed, elems),...); }, tuple);
         return seed;
     }
 };

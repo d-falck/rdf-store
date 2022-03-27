@@ -10,8 +10,8 @@
 void System::evaluate_query(std::string query_string, bool print) {
     auto start = std::chrono::high_resolution_clock::now();
 
-    Query query = Query::parse(query_string,
-        [=] (std::string name) {return _encode_resource(name);});
+    Query query = Query::parse(query_string, [=] (std::string name) {
+        return _encode_resource(name); });
     std::vector<TriplePattern> patterns = query.plan();
     std::vector<Variable> variables = query.variables;
     VariableMap map;
@@ -34,7 +34,8 @@ void System::evaluate_query(std::string query_string, bool print) {
 }
 
 void System::_nested_index_loop_join(VariableMap& map, int i, bool print,
-        std::vector<TriplePattern> patterns, std::vector<Variable> variables) {
+                                     std::vector<TriplePattern> patterns,
+                                     std::vector<Variable> variables) {
     if (i == patterns.size()) {
         _result_counter++;
         if (print) _print_mapped_values(map, variables);

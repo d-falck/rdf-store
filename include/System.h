@@ -16,7 +16,8 @@ class System {
         std::unordered_map<std::string, Resource> _resource_ids;
 
         void _nested_index_loop_join(VariableMap&, int, bool,
-            std::vector<TriplePattern>, std::vector<Variable>);
+                                     std::vector<TriplePattern>,
+                                     std::vector<Variable>);
         void _print_mapped_values(VariableMap, std::vector<Variable>);
         Resource _encode_resource(std::string);
         std::string _decode_resource(Resource);

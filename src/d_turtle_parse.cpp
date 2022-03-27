@@ -40,7 +40,7 @@ Resource System::_encode_resource(std::string name) {
     bool valid = (name[0] == '<' && name[n-1] == '>') ||
                  (name[0] == '"' && name[n-1] == '"');
     if (!valid) throw std::invalid_argument(
-        "Resources must be enclosed in quotes or angle brackets");
+            "Resources must be enclosed in quotes or angle brackets");
     if (_resource_ids.count(name) == 0) {
         _stored_resources.push_back(name);
         _resource_ids[name] = _stored_resources.size()-1;
