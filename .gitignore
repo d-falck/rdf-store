@@ -44,6 +44,5 @@ data/
 CMakeCache.txt
 CMakeFiles/
 *.ttl
-Makefile
 *.cmake
 my-RDF-store
