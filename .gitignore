@@ -36,6 +36,14 @@ build/
 data/
 .vscode/
 
-# Files
+# Generic
 .DS_Store
 *.zip
+
+# CMake/test-related
+CMakeCache.txt
+CMakeFiles/
+*.ttl
+Makefile
+*.cmake
+my-RDF-store
