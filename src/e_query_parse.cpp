@@ -62,14 +62,14 @@ Query Query::parse(std::string query_string,
     for (int i=0; i<where_loc; i++) vars.push_back(_parse_variable(words[i]));
 
     // Get triple patterns    
-    std::unordered_set<TriplePattern> pats;
+    std::vector<TriplePattern> pats;
     for (int i=where_loc+2; i<end_loc-1; i+=4) {
         if (words[i+3] != ".")
             throw std::invalid_argument("Pattern doesn't end in .");
         Term a = _parse_term(words[i], resource_encoder);
         Term b = _parse_term(words[i+1], resource_encoder);
         Term c = _parse_term(words[i+2], resource_encoder);
-        pats.insert(std::make_tuple(a, b, c));
+        pats.push_back(std::make_tuple(a, b, c));
     }
 
     return Query(vars, pats);

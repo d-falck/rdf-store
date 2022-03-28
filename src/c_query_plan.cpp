@@ -10,6 +10,7 @@
 #include <exception>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <sstream>
 #include <unordered_set>
 #include <Query.h>
@@ -27,25 +28,33 @@
  * @return std::vector<TriplePattern> 
  */
 std::vector<TriplePattern> Query::plan() {
-    // Maintain processed & unprocessed pattern sets and set of bound variables
-    std::unordered_set<TriplePattern> unprocessed(patterns);
+    // Maintain processed & unprocessed pattern lists and set of bound variables
+    std::vector<TriplePattern> unprocessed(patterns);
     std::vector<TriplePattern> processed;
     std::unordered_set<Variable> bound;
-
+    
     // Repeatedly process a pattern until we have none left
     while (!unprocessed.empty()) {
+
+        // Filter out patterns resulting in a cross product
+        std::vector<TriplePattern> candidates;
+        for (TriplePattern pattern : unprocessed) {
+            std::unordered_set<Variable> vars = utils::get_variables(pattern);
+            bool viable = vars.empty() || bound.empty() ||
+                          !utils::intersect<Variable>(vars, bound).empty();
+            if (viable) candidates.push_back(pattern);
+        }
+        
+        // If none left we'll have to put up with a cross product
+        if (candidates.empty()) candidates = unprocessed;
+
+        // Now pick the pattern with the lowest heuristic score
         int best_score = 100;
         TriplePattern best_pattern = INVALID_PATTERN;
-
-        // Pick the pattern with the lowest heuristic score
-        for (TriplePattern pattern : unprocessed) {
+        for (TriplePattern pattern : candidates) {
             int score = _get_score(pattern, bound);
             std::unordered_set<Variable> vars = utils::get_variables(pattern);
-            // Don't pick if it'll result in a cross product
-            bool condition = (score < best_score) &&
-                (vars.empty() ||
-                 !utils::intersect<Variable>(vars, bound).empty());
-            if ((best_pattern == INVALID_PATTERN) || condition) {
+            if (best_pattern == INVALID_PATTERN || score < best_score) {
                 best_pattern = pattern;
                 best_score = score;
             }
@@ -55,7 +64,9 @@ std::vector<TriplePattern> Query::plan() {
         processed.push_back(best_pattern);
         std::unordered_set<Variable> vars = utils::get_variables(best_pattern);
         for (Variable var : vars) bound.insert(var);
-        unprocessed.erase(best_pattern);
+        unprocessed.erase(
+            std::remove(unprocessed.begin(), unprocessed.end(), best_pattern),
+            unprocessed.end());
     }
     return processed;
 }

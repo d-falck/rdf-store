@@ -22,7 +22,7 @@
  */
 class System {
     public:
-        void evaluate_query(std::string, bool);
+        void evaluate_query(std::string, bool, bool);
         void load_triples(std::string);
 
     private:
@@ -40,4 +40,5 @@ class System {
         void _print_mapped_values(VariableMap, std::vector<Variable>);
         Resource _encode_resource(std::string);
         std::string _decode_resource(Resource);
+        std::string _term_to_string(Term);
 };

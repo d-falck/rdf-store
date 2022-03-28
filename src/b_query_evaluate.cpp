@@ -16,6 +16,7 @@
 #include <utils.h>
 
 /**
+ * 
  * @brief Evaluates a BGP SPARQL query string over currently stored triples
  * 
  * Prints number of results and time taken to stdout, optionally also printing
@@ -26,8 +27,10 @@
  * @param query_string BGP SPARQL query string to be evalauted
  * @param print Whether to print individual results (as opposed to just
  *      the result count and time taken)
+ * @param output_join_order Whether to print the join order used
  */
-void System::evaluate_query(std::string query_string, bool print) {
+void System::evaluate_query(std::string query_string,
+                            bool print, bool output_join_order) {
     auto start = std::chrono::high_resolution_clock::now();
 
     // Parse query and run join order optimizer
@@ -37,6 +40,17 @@ void System::evaluate_query(std::string query_string, bool print) {
     std::vector<Variable> variables = query.variables;
     VariableMap map;
 
+    // Print pattern evaluation order if enabled - useful for debugging
+    if (output_join_order) {
+        std::cout << std::endl << "Pattern evaluation order:" << std::endl;
+        std::cout << "=========================" << std::endl;
+        for (auto [a,b,c] : patterns) {
+            std::cout << _term_to_string(a) << " " << _term_to_string(b)
+                    << " " << _term_to_string(c) << std::endl;
+        }
+        std::cout << "=========================" << std::endl << std::endl;
+    }
+    
     // Initiate recursive join
     if (print) {
         std::cout << "----------" << std::endl;
@@ -109,4 +123,15 @@ void System::_print_mapped_values(VariableMap map,
         std::cout << _decode_resource(map[var]) << "\t";
     }
     std::cout << std::endl;
+}
+
+/**
+ * @brief Gets the string representation of a given term.
+ * 
+ * @param term 
+ * @return std::string 
+ */
+std::string System::_term_to_string(Term term) {
+    if (term.index() == 0) return "?" + std::get<Variable>(term);
+    else return _decode_resource(std::get<Resource>(term));
 }

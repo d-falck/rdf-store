@@ -23,10 +23,10 @@ class Query {
     public:
         // Variables in this query (in order)
         std::vector<Variable> variables;
-        // Patterns in this query (with no order)
-        std::unordered_set<TriplePattern> patterns;
+        // Patterns in this query (in order)
+        std::vector<TriplePattern> patterns;
 
-        Query(std::vector<Variable> v, std::unordered_set<TriplePattern> p) :
+        Query(std::vector<Variable> v, std::vector<TriplePattern> p) :
             variables(v), patterns(p) {};
         static Query parse(std::string, std::function<Resource(std::string)>);
         std::vector<TriplePattern> plan();
