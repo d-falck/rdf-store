@@ -10,6 +10,7 @@
 #include <exception>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <sstream>
 #include <unordered_set>
 #include <Query.h>
@@ -27,8 +28,9 @@
  * @return std::vector<TriplePattern> 
  */
 std::vector<TriplePattern> Query::plan() {
-    // Maintain processed & unprocessed pattern sets and set of bound variables
-    std::unordered_set<TriplePattern> unprocessed(patterns);
+    // Maintain processed & unprocessed pattern lists and set of bound variables
+    std::list<TriplePattern> unprocessed;
+    for (TriplePattern pattern : patterns) unprocessed.push_back(pattern);
     std::vector<TriplePattern> processed;
     std::unordered_set<Variable> bound;
     
@@ -36,18 +38,22 @@ std::vector<TriplePattern> Query::plan() {
     while (!unprocessed.empty()) {
         int best_score = 100;
         TriplePattern best_pattern = INVALID_PATTERN;
+        std::list<TriplePattern>::iterator best_pattern_it;
 
         // Pick the pattern with the lowest heuristic score
-        for (TriplePattern pattern : unprocessed) {
+        std::list<TriplePattern>::iterator it;
+        for (it = unprocessed.begin(); it != unprocessed.end(); ++it){
+            TriplePattern pattern = *it;
             int score = _get_score(pattern, bound);
             std::unordered_set<Variable> vars = utils::get_variables(pattern);
             // Don't pick if it'll result in a cross product
             bool condition = (score < best_score) &&
-                (vars.empty() ||
+                (vars.empty() || bound.empty() ||
                  !utils::intersect<Variable>(vars, bound).empty());
             if ((best_pattern == INVALID_PATTERN) || condition) {
                 best_pattern = pattern;
                 best_score = score;
+                best_pattern_it = it;
             }
         }
 
@@ -55,7 +61,7 @@ std::vector<TriplePattern> Query::plan() {
         processed.push_back(best_pattern);
         std::unordered_set<Variable> vars = utils::get_variables(best_pattern);
         for (Variable var : vars) bound.insert(var);
-        unprocessed.erase(best_pattern);
+        unprocessed.erase(best_pattern_it);
     }
     return processed;
 }
