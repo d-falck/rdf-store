@@ -64,7 +64,9 @@ std::vector<TriplePattern> Query::plan() {
         processed.push_back(best_pattern);
         std::unordered_set<Variable> vars = utils::get_variables(best_pattern);
         for (Variable var : vars) bound.insert(var);
-        std::remove(unprocessed.begin(), unprocessed.end(), best_pattern);
+        unprocessed.erase(
+            std::remove(unprocessed.begin(), unprocessed.end(), best_pattern),
+            unprocessed.end());
     }
     return processed;
 }
