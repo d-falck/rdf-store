@@ -32,14 +32,14 @@
  * opening brace occurs on the first line. It should thus be possible to paste
  * a multi-line query from a file into the command line and have it executed.
  * 
- * If the executable is invoked with flag `-o` then all `SELECT` and `COUNT`
+ * If the executable is invoked with flag `-v` then all `SELECT` and `COUNT`
  * commands will also print the join order used to stdout.
  * 
  * @return int 0 on successful termination
  */
 int main(int argc, char** argv) {
     System system;
-    bool output_join_order = (argc > 1 && std::string(argv[1]) == "-o");
+    bool output_join_order = (argc > 1 && std::string(argv[1]) == "-v");
     bool ready = true;
     bool loading_triples = false;
 
