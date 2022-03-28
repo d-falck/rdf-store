@@ -27,16 +27,20 @@
  * 
  * Note a slight modification has been made from the pseudocode given in the
  * exam paper; this implementation eliminates triple patterns that result in a
- * cross product *before* comparing scores. This is discussed further in the
- * accompanying report.
+ * cross product *before* comparing scores. Additionally, note that ties are
+ * broken in reverse order of appearance in the query. These decisions are
+ * discussed further in the accompanying report. 
  * 
- * @return std::vector<TriplePattern> 
+ * @return std::vector<TriplePattern>
  */
 std::vector<TriplePattern> Query::plan() {
     // Maintain processed & unprocessed pattern lists and set of bound variables
     std::vector<TriplePattern> unprocessed(patterns);
     std::vector<TriplePattern> processed;
     std::unordered_set<Variable> bound;
+
+    // First reverse the unprocessed patterns
+    std::reverse(unprocessed.begin(), unprocessed.end());
     
     // Repeatedly process a pattern until we have none left
     while (!unprocessed.empty()) {
