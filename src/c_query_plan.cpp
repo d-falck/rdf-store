@@ -25,6 +25,11 @@
  * ordering of triple pattern types to repeatedly pick a pattern with the
  * least expected join cost until all patterns have been processed.
  * 
+ * Note a slight modification has been made from the pseudocode given in the
+ * exam paper; this implementation eliminates triple patterns that result in a
+ * cross product *before* comparing scores. This is discussed further in the
+ * accompanying report.
+ * 
  * @return std::vector<TriplePattern> 
  */
 std::vector<TriplePattern> Query::plan() {
