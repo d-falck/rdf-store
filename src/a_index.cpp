@@ -202,6 +202,7 @@ std::function<std::optional<VariableMap>()> RDFIndex::evaluate(Term a, Term b,
                                                   && !condition(row));
                 return row; };
         }
+        implied_map = [=](_TableRow* row) { return VariableMap{{y,row->p}}; };
         break; }
     case SPO: {
         Resource s = std::get<Resource>(a);
