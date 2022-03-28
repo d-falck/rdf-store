@@ -54,7 +54,7 @@ void RDFIndex::add(Resource s, Resource p, Resource o) {
         } catch (std::out_of_range _) {
             // Insert new_row at head of OP-list
             new_row->next_OP = _index_O[o]; // Potentially null
-            _index_S[o] = new_row;
+            _index_O[o] = new_row;
             _index_OP[std::make_tuple(o,p)] = new_row;
         }
         _len_O[_index_O.at(o)]++;
